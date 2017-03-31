@@ -182,12 +182,12 @@ class BoundingBox:
 
     def run(self):
         """Run method that performs all the real work"""
-        xmin=a #iface.mapCanvas().extent().xMinimum()
-        xmax=b #iface.mapCanvas().extent().xMaximum()
-        ymin=c #iface.mapCanvas().extent().yMinimum()
-        ymax=d #iface.mapCanvas().extent().yMaximum()
-        bb=[xmin, ymin, xmax, ymax]
-        self.dlg.textOutput(bb)
+        #xmin="1" #iface.mapCanvas().extent().xMinimum()
+        #xmax="2" #iface.mapCanvas().extent().xMaximum()
+        #ymin="3" #iface.mapCanvas().extent().yMinimum()
+        #ymax="4" #iface.mapCanvas().extent().yMaximum()
+        #bb=[xmin, ymin, xmax, ymax]
+        #self.dlg.textOutput(str(bb))
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
