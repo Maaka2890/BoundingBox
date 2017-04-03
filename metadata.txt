@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Get Bounding Box
+qgisMinimumVersion=2.0
+description=This plugin returns the xmin, ymin, xmax ,ymax of the current view window
+version=1.0
+author=Maaka2890
+email=kkj_15@hotmail.com
+
+about=Developers of web services often need to test calls in which a bounding box is nescesary. The goal of this plugin is to (with one click) provide the bouning box of the current view window. Which you can coppy for your tests. Note that, in this plugin, the order will be xmin, ymin, xmax, ymax. This corresponds to the gml simple features point geometry encoding. Depending on the EPSG code your might need ymin, xmin, ymax, xmax in your tests.
+
+tracker=https://github.com/Maaka2890/BoundingBox/issues
+repository=https://github.com/Maaka2890/BoundingBox
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=
+
+homepage=https://github.com/Maaka2890/BoundingBox
+category=Web
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
