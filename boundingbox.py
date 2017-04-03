@@ -3,7 +3,7 @@
 /***************************************************************************
  BoundingBox
                                  A QGIS plugin
- This plugin returns the xmin, ymin, xmax ,ymax of the current view window
+ This plugin return the xmin, ymin, xmax ,ymax of the current view window
                               -------------------
         begin                : 2017-03-31
         git sha              : $Format:%H$
@@ -179,8 +179,16 @@ class BoundingBox:
         # remove the toolbar
         del self.toolbar
 
+
     def run(self):
         """Run method that performs all the real work"""
+        #xmin="1" #iface.mapCanvas().extent().xMinimum()
+        #xmax="2" #iface.mapCanvas().extent().xMaximum()
+        #ymin="3" #iface.mapCanvas().extent().yMinimum()
+        #ymax="4" #iface.mapCanvas().extent().yMaximum()
+        #bb=[xmin, ymin, xmax, ymax]
+        #self.dlg.textOutput(str(bb))
+        # show the dialog
         self.dlg.show()
         # Run the dialog event loop
         result = self.dlg.exec_()
