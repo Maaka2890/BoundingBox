@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/BoundingBox" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
