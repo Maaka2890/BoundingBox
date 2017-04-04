@@ -7,7 +7,7 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=Get Bounding Box
+name=BoundingBox
 qgisMinimumVersion=2.0
 description=This plugin returns the xmin, ymin, xmax ,ymax of the current view window
 version=1.0
@@ -26,7 +26,7 @@ repository=https://github.com/Maaka2890/BoundingBox
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=
+tags=bounding box
 
 homepage=https://github.com/Maaka2890/BoundingBox
 category=Web

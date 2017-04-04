@@ -5,7 +5,7 @@
                                  A QGIS plugin
  This plugin returns the xmin, ymin, xmax ,ymax of the current view window
                              -------------------
-        begin                : 2017-03-31
+        begin                : 2017-04-03
         git sha              : $Format:%H$
         copyright            : (C) 2017 by Maaka2890
         email                : kkj_15@hotmail.com
