@@ -5,7 +5,7 @@
                                  A QGIS plugin
  This plugin returns the xmin, ymin, xmax ,ymax of the current view window
                               -------------------
-        begin                : 2017-03-31
+        begin                : 2017-04-03
         git sha              : $Format:%H$
         copyright            : (C) 2017 by Maaka2890
         email                : kkj_15@hotmail.com
@@ -21,7 +21,7 @@
  ***************************************************************************/
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
-from PyQt4.QtGui import QAction, QIcon, QFileDialog
+from PyQt4.QtGui import QAction, QIcon
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
@@ -61,7 +61,7 @@ class BoundingBox:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&Get Bounding Box')
+        self.menu = self.tr(u'&BoundingBox')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'BoundingBox')
         self.toolbar.setObjectName(u'BoundingBox')
@@ -150,7 +150,7 @@ class BoundingBox:
             self.toolbar.addAction(action)
 
         if add_to_menu:
-            self.iface.addPluginToMenu(
+            self.iface.addPluginToWebMenu(
                 self.menu,
                 action)
 
@@ -164,7 +164,7 @@ class BoundingBox:
         icon_path = ':/plugins/BoundingBox/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'Bounding Box'),
+            text=self.tr(u'Get Bounding Box'),
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -172,15 +172,17 @@ class BoundingBox:
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
-            self.iface.removePluginMenu(
-                self.tr(u'&Get Bounding Box'),
+            self.iface.removePluginWebMenu(
+                self.tr(u'&BoundingBox'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
         del self.toolbar
 
+
     def run(self):
         """Run method that performs all the real work"""
+        # show the dialog
         self.dlg.show()
         # Run the dialog event loop
         result = self.dlg.exec_()
