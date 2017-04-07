@@ -3,7 +3,7 @@
 /***************************************************************************
  BoundingBox
                                  A QGIS plugin
- This plugin returns the xmin, ymin, xmax ,ymax of the current view window
+ This plugin returns the xmin, ymin, xmax, ymax of the current view window
                               -------------------
         begin                : 2017-04-03
         git sha              : $Format:%H$
