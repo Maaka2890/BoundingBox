@@ -3,7 +3,8 @@
 /***************************************************************************
  BoundingBox
                                  A QGIS plugin
- This plugin returns the xmin, ymin, xmax, ymax of the current view window
+ This plugin returns the xmin, ymin, xmax, ymax of the current view window, 
+ and the GetMap request of the selected WMS. 
                               -------------------
         begin                : 2017-04-03
         git sha              : $Format:%H$
@@ -15,7 +16,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
