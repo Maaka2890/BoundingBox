@@ -3,7 +3,8 @@
 /***************************************************************************
  BoundingBoxDialog
                                  A QGIS plugin
- This plugin returns the xmin, ymin, xmax, ymax of the current view window
+ This plugin returns the xmin, ymin, xmax, ymax of the current view window, 
+ and the GetMap request of the selected WMS. 
                              -------------------
         begin                : 2017-04-03
         git sha              : $Format:%H$
@@ -15,7 +16,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
@@ -27,6 +28,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 import os
 import sys
+import re
 from PyQt4 import QtCore, QtGui, uic
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
@@ -52,3 +54,26 @@ class BoundingBoxDialog(QtGui.QDialog, FORM_CLASS):
         bb1= str(xmin) + ","+str(ymin) + "," +str(xmax) + "," +str(ymax)
         bb=str(bb1)
         self.textOutput.setText(bb)
+        layer = iface.activeLayer()
+        urlsearch = "<tr><td>GetCapabilitiesUrl</td><td>(.+?)</td>"
+        urlresult = re.search(urlsearch, layer.metadata())
+        url = urlresult.group(1)
+        versionsearch = "<tr><td>WMS Version</td><td>(.+?)</td>"
+        versionresult = re.search(versionsearch, layer.metadata())
+        version = versionresult.group(1)
+        crs = iface.activeLayer().crs().authid()
+        crs = re.search('(.*)', crs)
+        crs= crs.group(1)
+        namesearch = "<tr><td>Name</td><td>(.+?)</td>"
+        nameresult = re.search(namesearch, layer.metadata())
+        name= nameresult.group(1)
+        width=iface.mapCanvas().extent().width()
+        width=str(width)
+        height=iface.mapCanvas().extent().height()
+        height=str(height)
+        formatsearch = "<tr><td>Image Formats</td><td>(.+?)</td>"
+        formatresult = re.search(formatsearch, layer.metadata())
+        format = formatresult.group(1)
+        format = format.split('<')[0]
+        getmap= url + "service=WMS&request=GetMap&version="+version +"&BGCOLOR=0xFFFFFF"+"&crs="+crs+"&bbox=" +bb +"&layers=" +name +"&width=" +width +"&height=" +height +"&format=" +format
+        self.textOutput_2.setText(getmap)
