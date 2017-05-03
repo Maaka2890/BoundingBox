@@ -67,9 +67,9 @@ class BoundingBoxDialog(QtGui.QDialog, FORM_CLASS):
         namesearch = "<tr><td>Name</td><td>(.+?)</td>"
         nameresult = re.search(namesearch, layer.metadata())
         name= nameresult.group(1)
-        width=iface.mapCanvas().extent().width()
+        width=iface.mapCanvas().size().width()
         width=str(width)
-        height=iface.mapCanvas().extent().height()
+        height=iface.mapCanvas().size().height()
         height=str(height)
         formatsearch = "<tr><td>Image Formats</td><td>(.+?)</td>"
         formatresult = re.search(formatsearch, layer.metadata())
