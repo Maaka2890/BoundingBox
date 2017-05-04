@@ -1,5 +1,5 @@
 # BoundingBox
-This plugin returns the xmin, ymin, xmax, ymax of the current view window in Qgis and the GetMap request of the selected WMS.
+This QGIS plugin returns the xmin, ymin, xmax, ymax and the GetMap request of the current view window of the selected WMS.
 
 Developers of web services often need bounding boxes of specific areas during trouble shooting, for test calls or for communication. 
 The goal of this plugin is to, with one click, provide the bounding box of the current view window and the GetMap request of the selected WMS. You can copy this for your tests. 
